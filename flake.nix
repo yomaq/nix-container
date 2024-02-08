@@ -22,6 +22,12 @@
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/docker ];
         };
+        kubevirt = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          format = "kubevirt";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/docker ];
+        };
     };
   };
 }
