@@ -4,19 +4,24 @@
     # Nixpkgs
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    # nix index for comma
-    nix-index-database.url = "github:Mic92/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    # # nix index for comma
+    # nix-index-database.url = "github:Mic92/nix-index-database";
+    # nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    # nixos-generators
+    nixos-generators = {
+      url = "github:nix-community/nixos-generators";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
-  outputs = { self, nixpkgs, agenix, ... }@inputs: 
-  {
-    #docker out
-    containerImages = {
-      blue = nixpkgs.dockerTools.buildLayeredImage {
-        system = "x86_64-linux";
-        specialArgs = { inherit inputs; }; 
-        modules = [ ./test2 ];
-      };
+  outputs = { self, nixpkgs, nixos-generators, ... }@inputs: 
+    {
+      packages.x86_64-linux = {
+        docker = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          format = "docker";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/docker ];
+        };
     };
   };
 }
