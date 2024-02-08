@@ -1,1 +1,1 @@
-# nix-container
+```nix build .#docker```
