@@ -2,14 +2,12 @@
 {
   imports =[];
   config = {
-    networking.hostName = "docker";
+    networking.hostName = "devcontainer";
     system.stateVersion = "23.11";
-    networking.useDHCP = lib.mkDefault true;
     nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
 
     services.sshd.enable = true;
-    services.nginx.enable = true;
 
     networking.firewall.allowedTCPPorts = [80];
 
