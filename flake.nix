@@ -28,6 +28,12 @@
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/docker ];
         };
+        amazon = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          format = "amazon";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/docker ];
+        };
     };
   };
 }
