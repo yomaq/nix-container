@@ -1,6 +1,8 @@
 { config, lib, pkgs, inputs, modulesPath, ... }:
 {
-  imports =[];
+  imports =[
+    inputs.nix-index-database.nixosModules.nix-index
+  ];
   config = {
     networking.hostName = "devcontainer";
     system.stateVersion = "23.11";
@@ -15,6 +17,8 @@
     services.openssh.settings.PermitRootLogin = lib.mkDefault "yes";
     services.getty.autologinUser = lib.mkDefault "root";
 
+
+    programs.nix-index-database.comma.enable = true;
 
     environment.systemPackages = [
       pkgs.gh

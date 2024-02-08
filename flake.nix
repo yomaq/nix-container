@@ -4,9 +4,9 @@
     # Nixpkgs
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable"; 
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    # # nix index for comma
-    # nix-index-database.url = "github:Mic92/nix-index-database";
-    # nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
+    # nix index for comma
+    nix-index-database.url = "github:Mic92/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";
     # nixos-generators
     nixos-generators = {
       url = "github:nix-community/nixos-generators";
