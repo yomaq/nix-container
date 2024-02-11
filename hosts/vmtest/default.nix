@@ -16,9 +16,10 @@
     # modules imported above, which are located at ./modules/hosts/
     devcontainer = {
       ssh.enable = true;
+      tailscale.enable = true;
       openvscode-server.enable = true;
       suites = {
-        packages
+        packages.enable = true;
       };
       users.root.enable = true;
     };
