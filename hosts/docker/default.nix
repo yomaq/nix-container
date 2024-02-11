@@ -18,7 +18,7 @@
       ssh.enable = true;
       openvscode-server.enable = true;
       suites = {
-        packages
+        packages.enable = true;
       };
       users.root.enable = true;
     };
