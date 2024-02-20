@@ -2,7 +2,7 @@
 
 with lib;
 let
-  cfg = config.yomaq.nixSettings;
+  cfg = config.devcontainer.nixSettings;
 in
 {
   options.devcontainer.nixSettings = {
