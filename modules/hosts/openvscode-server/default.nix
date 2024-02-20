@@ -18,8 +18,8 @@ in
   config = mkIf cfg.enable {
     services = {
       openvscode-server = {
+        package = pkgs.unstable.openvscode-server;
         enable = true;
-        port = 10521;
       };
     };
   };

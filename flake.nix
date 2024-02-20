@@ -12,6 +12,8 @@
   };
   outputs = { self, nixpkgs, nixos-generators, ... }@inputs: 
     {
+      overlays = import ./modules/overlays {inherit inputs;};
+      
       nixosConfigurations = {
         # vm output for testing purposes
         vmtest = nixpkgs.lib.nixosSystem {

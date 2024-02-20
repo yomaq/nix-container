@@ -9,9 +9,6 @@
   config = {
     # hostname
     networking.hostName = "devcontainer";
-    # nixos version on creation
-    system.stateVersion = "23.11";
-    nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 
     # modules imported above, which are located at ./modules/hosts/
     devcontainer = {
@@ -21,6 +18,7 @@
         packages.enable = true;
       };
       users.root.enable = true;
+      nixSettings.enable = true;
     };
   };
 }

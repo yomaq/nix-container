@@ -15,4 +15,4 @@ vmtest:
 docker-full:
     nix build .#docker && \
     sudo docker import result/tarball/nixos-system-x86_64-linux.tar.xz nixdevcontainer && \
-    sudo docker run --privileged -it nixdevcontainer /init
+    sudo docker run --privileged --device=/dev/kvm --network host -it nixdevcontainer /init
