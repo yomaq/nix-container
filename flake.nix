@@ -41,6 +41,13 @@
           specialArgs = { inherit inputs; };
           modules = [ ./hosts/docker ];
         };
+        #For using cloud init to rebuild to a specified flake on install
+        kubeinit = nixos-generators.nixosGenerate {
+          system = "x86_64-linux";
+          format = "kubevirt";
+          specialArgs = { inherit inputs; };
+          modules = [ ./hosts/kubeinit ];
+        };
     };
 ### Module outputs
     nixosModules = {
